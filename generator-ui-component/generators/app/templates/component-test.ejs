@@ -1,0 +1,32 @@
+import React from 'react';
+import { shallow } from 'enzyme';
+import <%= pascalizedComponentName %> from './<%= componentName %>.jsx';
+import fakePropsFactory from './fake-props';
+
+describe('<<%= pascalizedComponentName %> />', () =>
+{
+  const expectedProps = (propsOverrride = {}) =>
+  {
+    const fakeProps = fakePropsFactory();
+
+    return {
+      ...fakeProps,
+      ...propsOverrride
+    };
+  };
+
+  const wrapper = props => shallow(<<%= pascalizedComponentName %> {...props} />);
+
+  it('Should exist', () => expect(
+    wrapper(expectedProps()))
+  .to.exist);
+
+  it(
+    'Should do smth',
+    () =>
+    {
+      const props = expectedProps();
+      const component = wrapper(props);
+    }
+  );
+});

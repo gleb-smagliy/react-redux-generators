@@ -1,0 +1,13 @@
+{
+  "name": "generator-ui-container",
+  "version": "0.1.0",
+  "description": "",
+  "files": [
+    "generators"
+  ],
+  "author": "Gleb Smagliy",
+  "license": "MIT",
+  "dependencies": {
+    "yeoman-generator": "^1.1.1"
+  }
+}
