@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import propTypes, { defaultProps } from './props.js';
 
 const <%= pascalizedComponentName %> = ({
   <%_ include props _%>
@@ -8,10 +7,13 @@ const <%= pascalizedComponentName %> = ({
 <div />
 );
 
-<%= pascalizedComponentName %>.propTypes = {
-<%_ include props _%>
+export const defaultProps = {};
+
+export const propTypes = {
+  <%_ include props _%>
 };
 
-<%= pascalizedComponentName %>.defaultProps = {};
+<%= pascalizedComponentName %>.defaultProps = defaultProps;
+<%= pascalizedComponentName %>.propTypes = propTypes;
 
 export default <%= pascalizedComponentName %>;

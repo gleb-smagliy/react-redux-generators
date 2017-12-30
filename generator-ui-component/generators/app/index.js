@@ -79,4 +79,10 @@ module.exports = class extends Generator
       copyTemplate(this)(writingConfig[configKey]);
     }
   }
+
+  end()
+  {
+    this.log('Removing yo-rc.json...');
+    this.fs.delete('.yo-rc.json');
+  }
 };

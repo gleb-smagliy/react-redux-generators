@@ -1,9 +1,5 @@
 export default () => (
   {
-    <%= props
-        .map(p => `//${p}`)
-        .map((p, i) => i > 0 ? `    ${p}` : p)
-        .join(',' + lineSeparator)
-    %>
+      <%_ include props _%>
   }
 );
