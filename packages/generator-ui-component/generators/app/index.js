@@ -1,7 +1,7 @@
 /*jshint esversion: 6, node: true */
 "use strict";
 const Generator = require('yeoman-generator');
-const copyTemplate = require('./copy-template');
+const { copyTemplate } = require('yeoman-utils');
 const writingConfig = require('./copy-config');
 const componentTypes = require('./constants/component-type');
 const humps = require('humps');

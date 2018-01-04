@@ -9,6 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "humps": "^2.0.1",
+    "yeoman-utils": "^1.0.0",
     "yeoman-generator": "^1.1.1"
   }
 }
