@@ -1,0 +1,10 @@
+import { combineReducers } from 'redux';
+<%_ reducers.forEach(function (reducer, i) { _%>
+import { default as <%= camelizedReducers[i] %>} from './<%= reducer %>';
+<%_ }) _%>
+
+export default combineReducers({
+<%_ camelizedReducers.forEach(function (reducer, i) { _%>
+  <%= reducer %><%= i < camelizedReducers.length - 1 ? ',' : '' %>
+<%_ }) _%>
+});

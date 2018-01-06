@@ -2,6 +2,6 @@ import moduleId from '../constants/module-id';
 
 export default {
 <%_ actionTypes.forEach(function (actionType, i) { _%>
-    <%= actionType %>: `${moduleId}/<%= actionType %>`<%= i < actionTypes.length-1 ? ',' : '' %>
+  <%= actionType %>: `${moduleId}/<%= actionType %>`<%= i < actionTypes.length-1 ? ',' : '' %>
 <%_ }) _%>
 };

@@ -1,14 +1,17 @@
 import actionTypes from '../action-types';
-import actions from './';
+import reducer, { initialState } from './<%= reducer %>';
 
-describe('<%= containerName %> action creators', () =>
+describe('<%= `${containerName} ${reducer}` %> reducer', () =>
 {
-    <%_ actions.forEach(function (action, i) { _%>
-    it('Should create correct action for <%= actionTypes[i] %>',
-    () =>
-    {
-        expect(actions.<%= action %>()).to.deepEqual({ type: actionTypes.<%= actionTypes[i] %> });
-    });
+  it('Should return previous state on any action',
+  () =>
+  {
+      expect(reducer(1, { type: 'ANY' })).to.deepEqual(1);
+  });
 
-    <%_ }) _%>
+  it('Should return initial state if previous state is undefined',
+  () =>
+  {
+    expect(reducer(undefined, { type: 'ANY' })).to.deepEqual(initialState);
+  });
 });

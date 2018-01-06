@@ -28,9 +28,13 @@ module.exports = class extends Generator
 
     const moduleIdKey = promptingConfig.moduleId.name;
     const actionsKey = promptingConfig.actions.name;
+    const reducersKey = promptingConfig.reducers.name;
+    const selectorsKey = promptingConfig.selectors.name;
 
     this.config.set(moduleIdKey, this.config.get(moduleIdKey).toUpperCase());
     this.config.set('actionTypes', this.config.get(actionsKey).map(a => humps.decamelize(a).toUpperCase()));
+    this.config.set('camelizedReducers', this.config.get(reducersKey).map(r => humps.camelize(r)));
+    this.config.set('camelizedSelectors', this.config.get(selectorsKey).map(s => humps.camelize(s)));
   }
 
   writing()

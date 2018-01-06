@@ -3,12 +3,12 @@ import actions from './';
 
 describe('<%= containerName %> action creators', () =>
 {
-    <%_ actions.forEach(function (action, i) { _%>
-    it('Should create correct action for <%= actionTypes[i] %>',
-    () =>
-    {
-        expect(actions.<%= action %>()).to.deepEqual({ type: actionTypes.<%= actionTypes[i] %> });
-    });
+  <%_ actions.forEach(function (action, i) { _%>
+  it('Should create correct action for <%= actionTypes[i] %>',
+  () =>
+  {
+      expect(actions.<%= action %>()).to.deepEqual({ type: actionTypes.<%= actionTypes[i] %> });
+  });
 
-    <%_ }) _%>
+  <%_ }) _%>
 });

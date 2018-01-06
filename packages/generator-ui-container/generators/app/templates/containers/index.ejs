@@ -1,0 +1,8 @@
+import { connect } from 'react-redux';
+<%_ hasMapDispatch ? 'import { bindActionCreators } from \'redux\';' : '' %>
+import selectors from './selectors';
+import actions from './actions';
+import moduleId from './constants/module-id';
+
+export { default as actionTypes } from './action-types';
+export { default as saga } from './saga';

@@ -1,0 +1,17 @@
+import moduleId from '../constants/module-id';
+import selector from './<%= selector %>';
+
+describe('<%= `${containerName} ${selector}` %> selector', () =>
+{
+  const moduleState = 1;
+
+  const state = {
+    [moduleId]: moduleState
+  };
+
+  it('Should select full state',
+  () =>
+  {
+    expect(selector(state)).to.deepEqual(moduleState);
+  });
+});

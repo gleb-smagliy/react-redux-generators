@@ -18,7 +18,7 @@ module.exports.actions =
 {
   type    : 'input',
   name    : 'actions',
-  message : 'Action',
+  message : 'Action (camelized)',
   isArray : true
 };
 
@@ -26,7 +26,7 @@ module.exports.reducers =
 {
   type    : 'input',
   name    : 'reducers',
-  message : 'Reducer',
+  message : 'Reducer (de-camelized)',
   isArray : true
 };
 
@@ -34,7 +34,7 @@ module.exports.selectors =
 {
   type    : 'input',
   name    : 'selectors',
-  message : 'Selector',
+  message : 'Selector (de-camelized)',
   isArray: true
 };
 
