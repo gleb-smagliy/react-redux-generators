@@ -24,9 +24,13 @@ module.exports = class extends Generator
 
   configuring7()
   {
+    this.log('configuring7');
+
     const moduleIdKey = promptingConfig.moduleId.name;
+    const actionsKey = promptingConfig.actions.name;
 
     this.config.set(moduleIdKey, this.config.get(moduleIdKey).toUpperCase());
+    this.config.set('actionTypes', this.config.get(actionsKey).map(a => humps.decamelize(a).toUpperCase()));
   }
 
   writing()

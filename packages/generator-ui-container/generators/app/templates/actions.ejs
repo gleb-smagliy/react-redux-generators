@@ -1,0 +1,7 @@
+import actionTypes from '../action-types';
+
+export default {
+<%_ actions.forEach(function (action, i) { _%>
+    <%= action %>: () => ({ type: actionTypes.<%= actionTypes[i] %> })<%= i < actions.length - 1 ? ',' : '' %>
+<%_ }) _%>
+};

@@ -1,7 +1,7 @@
-import moduleId from '.../constants/module-id';
+import moduleId from '../constants/module-id';
 
 export default {
-<%_ actions.forEach(function (action, i) { _%>
-    <%= action.toUpperCase() %>: `${moduleId}/<%= action.toUpperCase() %>`<%= i < actions.length-1 ? ',' : '' %>
+<%_ actionTypes.forEach(function (actionType, i) { _%>
+    <%= actionType %>: `${moduleId}/<%= actionType %>`<%= i < actionTypes.length-1 ? ',' : '' %>
 <%_ }) _%>
 };

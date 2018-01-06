@@ -16,7 +16,21 @@ module.exports.actionTypes =
 {
   templatePath: 'action-types.ejs',
   destinationPath: ({ containerName }) => `${containerName}/action-types/index.js`,
-  keys: ['actions']
+  keys: ['actionTypes']
+};
+
+module.exports.actions =
+{
+  templatePath: 'actions.ejs',
+  destinationPath: ({ containerName }) => `${containerName}/actions/index.js`,
+  keys: ['actionTypes', 'actions']
+};
+
+module.exports.actionsTest =
+{
+  templatePath: 'actions_test.ejs',
+  destinationPath: ({ containerName }) => `${containerName}/actions/index_test.js`,
+  keys: ['actionTypes', 'actions', 'containerName']
 };
 //
 // module.exports.index =

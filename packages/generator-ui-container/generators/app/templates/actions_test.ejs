@@ -1,0 +1,14 @@
+import actionTypes from '../action-types';
+import actions from './';
+
+describe('<%= containerName %> action creators', () =>
+{
+    <%_ actions.forEach(function (action, i) { _%>
+    it('Should create correct action for <%= actionTypes[i] %>',
+    () =>
+    {
+        expect(actions.<%= action %>()).to.deepEqual({ type: actionTypes.<%= actionTypes[i] %> });
+    });
+
+    <%_ }) _%>
+});
