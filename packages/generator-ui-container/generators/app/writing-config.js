@@ -32,6 +32,14 @@ module.exports.actionsTest =
   destinationPath: ({ containerName }) => `${containerName}/actions/index_test.js`,
   keys: ['actionTypes', 'actions', 'containerName']
 };
+
+module.exports.reducers =
+{
+  templatePath: 'reducer.ejs',
+  destinationPath: ({ containerName, reducer }) => `${containerName}/reducer/${reducer}.js`,
+  map: { from: 'reducers', to: 'reducer' },
+  keys: ['actionTypes', 'actions', 'containerName']
+};
 //
 // module.exports.index =
 // {

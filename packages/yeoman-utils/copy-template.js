@@ -11,7 +11,7 @@ const DEFAULT_PARAMS =
 const DEFAULT_COPY_CONFIG =
 {
   condition: () => true,
-  process: () => ({})
+  process: () => ({}),
 };
 
 const configReducer = generatorConfig => (config, key) =>
@@ -25,22 +25,44 @@ const populatePath = generatorConfig => path => typeof path === 'function' ? pat
 
 const smartCopy = generator => copyConfig =>
 {
-  const { keys, templatePath, destinationPath, condition, process } = Object.assign({}, DEFAULT_COPY_CONFIG, copyConfig);
+  const { keys, templatePath, destinationPath, condition, process, map } = Object.assign({}, DEFAULT_COPY_CONFIG, copyConfig);
   const generatorConfig = generator.config.getAll();
 
   if(!condition(generatorConfig)) { return; }
 
   const params = keys.reduce(configReducer(generatorConfig), {});
   const processedParams = process(generatorConfig);
-  const populate = populatePath(generatorConfig);
+  const templateParams = Object.assign({}, DEFAULT_PARAMS, params, processedParams);
 
+  if(map)
+  {
+    const { from, to } = map;
+    const mapParams = generatorConfig[from];
 
-  generator.fs.copyTpl
-  (
-    generator.templatePath(populate(templatePath)),
-    generator.destinationPath(populate(destinationPath)),
-    Object.assign({}, DEFAULT_PARAMS, params, processedParams)
-  );
+    for (let mapParam of mapParams)
+    {
+      const currentTemplateParams = Object.assign({}, templateParams, { [to]: mapParam });
+      const currentGeneratorConfig = Object.assign({}, generatorConfig, { [to]: mapParam });
+      const populate = populatePath(currentGeneratorConfig);
+
+      generator.fs.copyTpl
+      (
+        generator.templatePath(populate(templatePath)),
+        generator.destinationPath(populate(destinationPath)),
+        currentTemplateParams
+      );
+    }
+  }
+  else
+  {
+    const populate = populatePath(generatorConfig);
+    generator.fs.copyTpl
+    (
+      generator.templatePath(populate(templatePath)),
+      generator.destinationPath(populate(destinationPath)),
+      templateParams
+    );
+  }
 };
 
 
