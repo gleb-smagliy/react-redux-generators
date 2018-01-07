@@ -1,6 +1,6 @@
 {
   "name": "generator-ducks-pod",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Ducks-like container scaffolding with mocha-chai tests",
   "files": [
     "generators"
@@ -25,7 +25,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "yo-sweetener": "^1.0.0",
-    "yeoman-generator": "^1.1.1"
+    "yeoman-generator": "^1.1.1",
+    "yo-sweetener": "^1.0.0"
   }
 }
