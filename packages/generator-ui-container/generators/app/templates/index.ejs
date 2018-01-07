@@ -1,0 +1,55 @@
+<%_ if(hasMapDispatch || hasMapState) { _%>
+import { connect } from 'react-redux';
+<%_ } _%>
+<%_ if(hasMapDispatch) { _%>
+import { bindActionCreators } from 'redux';
+<%_ } _%>
+<%_ if(selectors.length > 0) { _%>
+import selectors from './selectors';
+<%_ } _%>
+<%_ if(actions.length > 0) { _%>
+import actions from './actions';
+<%_ } _%>
+<%_ if(moduleId.trim() !== '') { _%>
+import moduleId from './constants/module-id';
+<%_ } _%>
+
+<%_ if(hasMapDispatch) { _%>
+export const mapDispatch = dispatch =>
+{
+  return {
+
+  };
+};
+
+<%_ } _%>
+<%_ if(hasMapState) { _%>
+export const mapProps = state =>
+{
+  return {
+
+  };
+};
+
+<%_ } _%>
+<%_ if(hasMapState && hasMapDispatch) { _%>
+export default connect(mapProps, mapDispatch)(/* wrapped component */);
+<%_ } else if(hasMapState) { _%>
+export default connect(mapProps)(/* wrapped component */);
+<%_ } else if(hasMapDispatch) { _%>
+export default connect(undefined, mapDispatch)(/* wrapped component */);
+<%_ } _%>
+
+<%_ if(moduleId.trim() !== '') { _%>
+export { moduleId };
+<%_ } _%>
+<%_ if(selectors.length > 0) { _%>
+export { selectors };
+<%_ } _%>
+<%_ if(actions.length > 0) { _%>
+export { actions };
+<%_ } _%>
+<%_ if(actionTypes.length > 0) { _%>
+export { default as actionTypes } from './action-types';
+<%_ } _%>
+export { default as saga } from './saga';

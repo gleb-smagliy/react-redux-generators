@@ -1,0 +1,52 @@
+<%_ if(hasMapDispatch) { _%>
+import { bindActionCreators } from 'redux';
+<%_ } _%>
+<%_ if(hasMapState) { _%>
+import moduleId from './constants/module-id';
+<%_ } _%>
+<%_ if(!hasMapDispatch && hasMapState) { _%>
+import { mapState } from './';
+<%_ } _%>
+<%_ if(hasMapDispatch && !hasMapState) { _%>
+import { mapDispatch } from './';
+<%_ } _%>
+<%_ if(hasMapDispatch && hasMapState) { _%>
+import { mapState, mapDispatch } from './';
+<%_ } _%>
+
+
+<%_ if(hasMapDispatch) { _%>
+describe('<%= containerName %> mapState', () =>
+{
+  const moduleState = {
+
+  };
+  const state = { [moduleId]: moduleState };
+
+  it('Should correctly map state to props %>',
+  () =>
+  {
+    expect(mapState(state)).to.deepEqual(
+    {
+
+    });
+  });
+});
+
+<%_ } _%>
+<%_ if(hasMapDispatch) { _%>
+describe('<%= containerName %> mapDispatch', () =>
+{
+  const dispatch = f => f;
+
+  it('Should correctly map actions to props %>',
+  () =>
+  {
+    expect(mapDispatch(dispatch)).to.deepEqual(
+    {
+
+    });
+  });
+});
+<%_ } _%>
+

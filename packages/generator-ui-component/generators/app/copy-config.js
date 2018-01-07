@@ -28,13 +28,13 @@ module.exports.functionalComponent =
 };
 
 module.exports.component =
-  {
-    condition: ({ type }) => type === componentType.PURE || type === componentType.CLASSIC,
-    process: ({ type }) => ({ isPure: type === componentType.PURE }),
-    templatePath: 'component.ejs',
-    destinationPath: ({ componentName }) => `${componentName}/src/${componentName}.jsx`,
-    keys: ['pascalizedComponentName', 'props', 'type']
-  };
+{
+  condition: ({ type }) => type === componentType.PURE || type === componentType.CLASSIC,
+  process: ({ type }) => ({ isPure: type === componentType.PURE }),
+  templatePath: 'component.ejs',
+  destinationPath: ({ componentName }) => `${componentName}/src/${componentName}.jsx`,
+  keys: ['pascalizedComponentName', 'props', 'type']
+};
 
 module.exports.test =
 {

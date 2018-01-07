@@ -1,10 +1,16 @@
 /*jshint esversion: 6, node: true */
 "use strict";
 
-const containerType = require('./constants/container-type');
+const containerTypes = require('./constants/container-type');
+
+const typeToFlags = ({ containerType }) => ({
+  hasMapDispatch: [containerTypes.BOTH, containerTypes.DISPATCH_ONLY].indexOf(containerType) !== -1,
+  hasMapState: [containerTypes.BOTH, containerTypes.STATE_ONLY].indexOf(containerType) !== -1
+});
 
 module.exports.moduleId =
 {
+  condition: ({ moduleId }) => moduleId.trim() !== '',
   templatePath: 'module-id.ejs',
   destinationPath: ({ containerName }) => `${containerName}/constants/module-id.js`,
   keys: ['moduleId']
@@ -28,6 +34,7 @@ module.exports.actions =
 
 module.exports.actionsTest =
 {
+  condition: ({ actions }) => actions.length > 0,
   templatePath: 'actions_test.ejs',
   destinationPath: ({ containerName }) => `${containerName}/actions/index_test.js`,
   keys: ['actionTypes', 'actions', 'containerName']
@@ -75,39 +82,25 @@ module.exports.selectorsTests =
 
 module.exports.selectorsIndex =
 {
-  condition: ({ selectors }) => selector.length > 0,
+  condition: ({ selectors }) => selectors.length > 0,
   templatePath: 'selectors_index.ejs',
   destinationPath: ({ containerName}) => `${containerName}/selectors/index.js`,
   keys: ['containerName', 'selectors', 'camelizedSelectors']
 };
-//
-// module.exports.index =
-// {
-//   templatePath: 'index.ejs',
-//   destinationPath: ({ componentName }) => `${componentName}/index.js`,
-//   keys: ['componentName']
-// };
-//
-// module.exports.functionalComponent =
-// {
-//   condition: ({ type }) => type === componentType.FUNCTIONAL,
-//   templatePath: 'functional-component.ejs',
-//   destinationPath: ({ componentName }) => `${componentName}/src/${componentName}.jsx`,
-//   keys: ['pascalizedComponentName', 'props']
-// };
-//
-// module.exports.component =
-//   {
-//     condition: ({ type }) => type === componentType.PURE || type === componentType.CLASSIC,
-//     process: ({ type }) => ({ isPure: type === componentType.PURE }),
-//     templatePath: 'component.ejs',
-//     destinationPath: ({ componentName }) => `${componentName}/src/${componentName}.jsx`,
-//     keys: ['pascalizedComponentName', 'props', 'type']
-//   };
-//
-// module.exports.test =
-// {
-//   templatePath: 'component-test.ejs',
-//   destinationPath: ({ componentName }) => `${componentName}/src/${componentName}_test.jsx`,
-//   keys: ['componentName', 'pascalizedComponentName', 'props']
-// };
+
+module.exports.index =
+{
+  process: typeToFlags,
+  templatePath: 'index.ejs',
+  destinationPath: ({ containerName}) => `${containerName}/index.js`,
+  keys: ['containerName', 'moduleId', 'actions', 'actionTypes', 'selectors']
+};
+
+module.exports.indexTest =
+  {
+    condition: ({ containerType }) => containerType !== containerTypes.EXPORTS_ONLY,
+    process: typeToFlags,
+    templatePath: 'index_test.ejs',
+    destinationPath: ({ containerName}) => `${containerName}/index_test.js`,
+    keys: ['containerName']
+  };
