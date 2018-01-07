@@ -1,6 +1,6 @@
 {
   "name": "generator-ducks-pod",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Ducks-like container scaffolding with mocha-chai tests",
   "files": [
     "generators"
