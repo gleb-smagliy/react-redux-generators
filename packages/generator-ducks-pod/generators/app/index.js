@@ -1,7 +1,7 @@
 /*jshint esversion: 6, node: true */
 "use strict";
 const Generator = require('yeoman-generator');
-const { copyTemplate, prompting } = require('yeoman-utils');
+const { copyTemplate, prompting } = require('yo-sweetener');
 const humps = require('humps');
 const promptingConfig = require('./prompting-config');
 const writingConfig = require('./writing-config');

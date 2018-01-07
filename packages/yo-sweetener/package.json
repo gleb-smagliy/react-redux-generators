@@ -1,0 +1,20 @@
+{
+  "name": "yo-sweetener",
+  "version": "1.0.0",
+  "description": "Basic yeoman sugaring to prompting/writing declarative way",
+  "main": "index.js",
+  "author": {
+    "name": "Gleb Smagliy",
+    "email": "glebsmag@gmail.com",
+    "url": "https://github.com/gleb-smagliy"
+  },
+  "keywords": [
+    "boilerplate",
+    "yeoman"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gleb-smagliy/react-redux-generators.git"
+  },
+  "license": "MIT"
+}

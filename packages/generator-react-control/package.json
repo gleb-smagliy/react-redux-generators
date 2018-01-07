@@ -1,0 +1,29 @@
+{
+  "name": "generator-react-control",
+  "version": "0.1.0",
+  "description": "Single react component with props scaffolding with mocha-chai-enzyme tests",
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "react",
+    "boilerplate",
+    "scaffolding",
+    "yeoman-generator"
+  ],
+  "author": {
+    "name": "Gleb Smagliy",
+    "email": "glebsmag@gmail.com",
+    "url": "https://github.com/gleb-smagliy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gleb-smagliy/react-redux-generators.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "humps": "^2.0.1",
+    "yo-sweetener": "^1.0.0",
+    "yeoman-generator": "^1.1.1"
+  }
+}

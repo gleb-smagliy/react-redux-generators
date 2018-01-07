@@ -1,0 +1,31 @@
+{
+  "name": "generator-ducks-pod",
+  "version": "0.1.0",
+  "description": "Ducks-like container scaffolding with mocha-chai tests",
+  "files": [
+    "generators"
+  ],
+  "author": {
+    "name": "Gleb Smagliy",
+    "email": "glebsmag@gmail.com",
+    "url": "https://github.com/gleb-smagliy"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "ducks",
+    "pod",
+    "boilerplate",
+    "scaffolding",
+    "yeoman-generator"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gleb-smagliy/react-redux-generators.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "yo-sweetener": "^1.0.0",
+    "yeoman-generator": "^1.1.1"
+  }
+}
