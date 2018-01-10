@@ -12,6 +12,7 @@ const DEFAULT_COPY_CONFIG =
 {
   condition: () => true,
   process: () => ({}),
+  keys: []
 };
 
 const configReducer = generatorConfig => (config, key) =>
