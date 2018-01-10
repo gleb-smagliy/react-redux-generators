@@ -1,6 +1,6 @@
 {
   "name": "yo-sweetener",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Basic yeoman sugaring to prompting/writing declarative way",
   "main": "index.js",
   "author": {
