@@ -17,9 +17,7 @@ describe('<<%= pascalizedComponentName %> />', () =>
 
   const wrapper = props => shallow(<<%= pascalizedComponentName %> {...props} />);
 
-  it('Should exist', () => expect(
-    wrapper(expectedProps()))
-  .to.exist);
+  it('Should exist', () => expect(wrapper(expectedProps())).to.exist);
 
   it(
     'Should do smth',
