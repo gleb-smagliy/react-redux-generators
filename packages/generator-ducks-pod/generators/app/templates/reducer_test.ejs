@@ -3,15 +3,19 @@ import reducer, { initialState } from './<%= reducer %>';
 
 describe('<%= `${containerName} ${reducer}` %> reducer', () =>
 {
-  it('Should return previous state on any action',
-  () =>
-  {
-      expect(reducer(1, { type: 'ANY' })).to.deepEqual(1);
-  });
+  it(
+    'Should return previous state on any action',
+    () =>
+    {
+      expect(reducer(1, { type: 'ANY' })).to.deep.equal(1);
+    }
+  );
 
-  it('Should return initial state if previous state is undefined',
-  () =>
-  {
-    expect(reducer(undefined, { type: 'ANY' })).to.deepEqual(initialState);
-  });
+  it(
+    'Should return initial state if previous state is undefined',
+    () =>
+    {
+      expect(reducer(undefined, { type: 'ANY' })).to.deep.equal(initialState);
+    }
+  );
 });

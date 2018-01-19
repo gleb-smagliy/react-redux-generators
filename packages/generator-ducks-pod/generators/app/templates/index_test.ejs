@@ -23,14 +23,16 @@ describe('<%= containerName %> mapState', () =>
   };
   const state = { [moduleId]: moduleState };
 
-  it('Should correctly map state to props %>',
-  () =>
-  {
-    expect(mapState(state)).to.deepEqual(
+  it(
+    'Should correctly map state to props %>',
+    () =>
     {
+      expect(mapState(state)).to.deep.equal(
+      {
 
-    });
-  });
+      });
+    }
+  );
 });
 
 <%_ } _%>
@@ -39,14 +41,16 @@ describe('<%= containerName %> mapDispatch', () =>
 {
   const dispatch = f => f;
 
-  it('Should correctly map actions to props %>',
-  () =>
-  {
-    expect(mapDispatch(dispatch)).to.deepEqual(
+  it(
+    'Should correctly map actions to props %>',
+    () =>
     {
+      expect(mapDispatch(dispatch)).to.deep.equal(
+      {
 
-    });
-  });
+      });
+    }
+  );
 });
 <%_ } _%>
 

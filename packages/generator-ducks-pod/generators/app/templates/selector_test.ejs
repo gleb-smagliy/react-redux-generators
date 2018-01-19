@@ -11,9 +11,11 @@ describe('<%= `${containerName} ${selector}` %> selector', () =>
     [moduleId]: moduleState
   };
 
-  it('Should select full state',
-  () =>
-  {
-    expect(selector(state)).to.deepEqual(moduleState);
-  });
+  it(
+    'Should select full state',
+    () =>
+    {
+      expect(selector(state)).to.deep.equal(moduleState);
+    }
+  );
 });
