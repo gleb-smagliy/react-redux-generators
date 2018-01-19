@@ -1,6 +1,6 @@
 {
   "name": "generator-react-control",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Single react component with props scaffolding with mocha-chai-enzyme tests",
   "files": [
     "generators"
